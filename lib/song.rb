@@ -64,8 +64,9 @@ class Song
   end
 
   def self.create_from_filename(name)
-    new_from_filename(name)
-    save
+    new_song = new_from_filename(name)
+    @@all << new_song
+    
   end
 
   def self.find_by_name(name)
