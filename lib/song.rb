@@ -65,6 +65,7 @@ class Song
 
   def self.create_from_filename(name)
     new_from_filename(name)
+    save
   end
 
   def self.find_by_name(name)
