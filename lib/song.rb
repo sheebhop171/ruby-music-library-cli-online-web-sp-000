@@ -15,7 +15,6 @@ class Song
     if genre != nil
       self.genre = genre
     end
-    save
   end
 
   def artist=(artist)
@@ -65,7 +64,8 @@ class Song
   end
 
   def self.create_from_filename(name)
-    new_from_filename(name)
+    new_song = new_from_filename(name)
+    @@all << new_song
   end
 
   def self.find_by_name(name)
@@ -73,7 +73,7 @@ class Song
   end
 
   def self.find_or_create_by_name(name)
-    self.find_by_name(name) || create(name)
+    self.find_by_name(name) || self.create(name)
   end
 
 end
